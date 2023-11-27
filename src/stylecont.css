@@ -4,7 +4,6 @@ body {
     background-color: white;
     margin: 0;
     padding: 0;
-    
 }
 
 /* Estilos para o cabeçalho da página de contato */
@@ -40,30 +39,27 @@ body {
 /* Estilos para os botões com classe .btn */
 .btn {
     display: inline-block;
-    background-color: #d9d9d9; /* Cor de fundo semelhante à .log */
+    background-color: #d9d9d9;
     border: none;
-    color: white; /* Cor do texto nos botões */
-    padding: 10px 20px; /* Espaçamento interno dos botões */
+    color: white;
+    padding: 10px 20px;
     text-align: center;
     text-decoration: none;
     font-size: 16px;
-    border-radius: 75px; /* Mesma borda arredondada da .log */
+    border-radius: 75px;
     cursor: pointer;
-    transition: background-color 0.3s ease; /* Adiciona uma transição suave na mudança de cor de fundo */
+    transition: background-color 0.3s ease;
 }
 
 /* Estilos para o texto dentro dos botões */
 .btn p {
-    margin: 0; /* Remova as margens padrão do texto */
+    margin: 0;
 }
 
 /* Efeito de transição quando o cursor estiver sobre os botões */
 .btn:hover {
-    background-color: #ae751f; /* Cor de fundo ao passar o cursor por cima */
+    background-color: #ae751f;
 }
-
-
-
 
 /* Estilos adicionais para a página de contato com os desenvolvedores */
 .contato {
@@ -71,7 +67,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 600px;
+    width: 100%;
     margin: 0 auto;
     padding: 20px;
     background-color: #333;
@@ -92,7 +88,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    
     width: 100%;
 }
 
@@ -123,8 +118,25 @@ body {
     resize: none; /* Impede o redimensionamento pelo usuário */
 }
 
-
 /* Efeito de transição quando o cursor estiver sobre o botão de envio */
 .formulario button:hover {
     background-color: #6b4242;
+}
+
+/* Estilos para dispositivos de tela pequena (móveis) */
+@media screen and (max-width: 600px) {
+    .nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav a {
+        margin: 10px 0;
+    }
+
+    .formulario input[type="text"],
+    .formulario input[type="email"],
+    .formulario textarea {
+        width: 90%;
+    }
 }

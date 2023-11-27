@@ -27,7 +27,16 @@ module.exports = {
 
     inserir: (nome, email, senha) =>{
         return new Promise((aceito, rejeitado)=>{
-            db.query('INSERT INTO users (nome, email, senha) VALUES (?, ?, SHA2(?, 256))', [nome, email, senha], (error, results)=>{
+            db.query('INSERT IGNORE INTO users (nome, email, senha) VALUES (?, ?, ?)', [nome, email, senha], (error, results)=>{
+                if(error){rejeitado(error); return;}
+                    aceito(results.insertnome);
+            });
+        });
+    },
+
+    log: (nome, senha) =>{
+        return new Promise((aceito, rejeitado)=>{
+            db.query('INSERT IGNORE INTO users (nome, senha) VALUES (?, ?)', [nome, senha], (error, results)=>{
                 if(error){rejeitado(error); return;}
                     aceito(results.insertnome);
             });

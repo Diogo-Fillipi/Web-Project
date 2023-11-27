@@ -1,6 +1,4 @@
- /* Estilos adicionais para a página de registro (sign-up) */
- body {
-    background-color: #b4b4b4;
+body {
     margin: 0;
     padding: 0;
     display: flex;
@@ -8,126 +6,66 @@
     align-items: center;
     min-height: 100vh;
     overflow: hidden;
+    background-color: #b4b4b4;
+}
+
+.complemento {
+    background-color: #333;
+    height: 640px;
+    border-radius: 10px;
+    width: 100%;
+    position: relative;
+    padding: 20px;
+    box-shadow: 0px 4px 4px #00000040;
 }
 
 .complemento2 {
-    
     display: flex;
     flex-direction: column;
-    width: 500px;
+    width: 100%;
     justify-content: center;
     align-items: center;
     margin-top: 5px;
-    color:floralwhite;
+    color: floralwhite;
     text-align: justify;
-    
 }
 
-
-.complemento{
-    background-color: #333;
-    height: 640px;
-    border-radius:10px;
-    width: 700px;
-    height: 600px;
-    position: absolute;
-    right: 600px;
-    padding:20px;
-    box-shadow: 0px 4px 4px #00000040;
-}
-
-.complemento2 img{
-    position: absolute;
-    width: 400px;
+.complemento2 img {
+    width: 100%;
     border: 2px solid floralwhite;
     border-radius: 10px;
-    top: 350px;
-   
-  
+}
 
-}
-.formulario-signin input[type="password"],
-.formulario-signin input[type="text"]{
-    width: 90%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-/* Estilos para o formulário de registro (sign-in)*/
-.formulario-signin {
-    position: absolute;
-    right: 200px;
-    background-color: #f5f5f5;
-    border-radius: 10px;
-    box-shadow: 0px 4px 4px #00000040;
-    padding: 20px;
-    width: 550px; /* Largura aumentada para 400px */
-    height: 600px;
-    text-align: center;
-    align-items: end;
-    z-index: 2;
-}
-/* Estilos para o formulário de registro (sign-up) */
+.formulario-signin,
 .formulario-signup {
-
+    position: relative;
+    width: 100%;
     background-color: #f5f5f5;
     border-radius: 10px;
     box-shadow: 0px 4px 4px #00000040;
     padding: 20px;
-    margin-right: 200px;
-    width: 550px; /* Largura aumentada para 400px */
-    height: 600px;
     text-align: center;
     align-items: end;
-    z-index: 1;
-
-}
-
-/* Estilos para o título da tela de registro (sign-up) */
-.formulario-signup h1 {
-    font-size: 24px;
-    color: #333;
     margin-bottom: 20px;
-    width: 400;
-    color: #174b46;
 }
 
-.formulario-signin h1 {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 20px;
-    width: 400;
-    color: #174b46;
-}
-
-/* Estilos para os campos do formulário de registro (sign-up) */
+.formulario-signin input[type="password"],
+.formulario-signin input[type="text"],
 .formulario-signup input[type="text"],
 .formulario-signup input[type="number"],
 .formulario-signup input[type="tel"],
 .formulario-signup input[type="password"],
 .formulario-signup select {
-    width: 90%;
+    width: calc(100% - 20px);
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-
-
-/* Estilos para o botão de registro (sign-up) */
-.formulario-signup button {
-    padding: 10px;
-    background-color: #174b46;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
+.formulario-signup button,
 .formulario-signin button {
+    width: calc(100% - 20px);
     padding: 10px;
     background-color: #174b46;
     color: white;
@@ -137,27 +75,30 @@
     transition: background-color 0.3s ease;
 }
 
-/* Efeito de transição quando o cursor estiver sobre o botão de registro (sign-up) */
-.formulario-signup button:hover {
+.formulario-signup button:hover,
+.formulario-signin button:hover {
     background-color: #0a1f1d;
 }
 
-/* Estilos para a mensagem de erro */
 #mensagemErro {
     color: red;
 }
 
-.btnlog{
-    display: flex;
-    justify-content: center;
-    justify-content: space-around;
+.btnlog button {
+    width: calc(33.33% - 10px);
+    margin-top: 10px; /* Adiciona espaço entre os botões */
+    margin: 5 5px;
+}
 
-    align-items: center;
-    border-bottom: 15px;
-    margin-left: 70px;
-    margin-top: 100px;
-    justify-items: center;
-    width: 400px;
-    display: flex;
 
+@media only screen and (max-width: 600px) {
+    .formulario-signin,
+    .formulario-signup {
+        margin-right: 0;
+    }
+
+    .formulario-signin button,
+    .formulario-signup button {
+        width: calc(100% - 20px);
+    }
 }

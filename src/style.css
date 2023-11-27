@@ -1,5 +1,5 @@
-  /* Estilos personalizados para esta landing page */
-  body {
+/* Estilos personalizados para esta landing page */
+body {
     font-family: Arial, sans-serif;
     background-color: #f8f8f8; /* Cor de fundo geral */
     margin: 0;
@@ -17,6 +17,7 @@
     color: #fff;
     text-align: center;
     padding: 20px 0;
+    position: relative; /* Adiciona posição relativa para a barra de pesquisa */
 }
 
 .header h1 {
@@ -110,21 +111,12 @@
 }
 
 /* Estilos gerais da barra de pesquisa */
-.header {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px 0;
-    transition: background-color 0.3s ease;
-    position: relative;
-}
-
 .search-bar {
     background-color: rgba(0, 0, 0, 0.8);
     padding: 10px 0;
     width: 100%;
-    position: fixed; /* Posicionamento fixo para a barra de pesquisa */
-    top: 0;
+    position: absolute; /* Posicionamento absoluto para a barra de pesquisa */
+    top: 100%; /* Ajuste conforme necessário para a posição desejada abaixo do cabeçalho */
     left: 0;
     z-index: 1000;
     transition: background-color 0.3s ease;
@@ -141,4 +133,40 @@
     display: block;
     background-color: transparent;
     color: #fff;
+}
+
+/* Estilos para dispositivos de tela pequena (móveis) */
+@media screen and (max-width: 600px) {
+    .container {
+        padding: 10px; /* Reduz o preenchimento em dispositivos menores */
+    }
+
+    .header h1 {
+        font-size: 24px; /* Reduz o tamanho da fonte do título em dispositivos móveis */
+    }
+
+    .btn {
+        font-size: 16px; /* Reduz o tamanho da fonte dos botões em dispositivos móveis */
+    }
+
+    .section h2 {
+        font-size: 24px; /* Reduz o tamanho da fonte dos títulos de seção em dispositivos móveis */
+    }
+
+    .section p {
+        font-size: 16px; /* Reduz o tamanho da fonte dos parágrafos em dispositivos móveis */
+    }
+
+    .section ul {
+        padding-left: 0; /* Remove o recuo nas listas em dispositivos móveis */
+    }
+
+    .section li {
+        font-size: 14px; /* Reduz o tamanho da fonte das listas em dispositivos móveis */
+    }
+
+    .search-bar {
+        position: relative; /* Altera a posição de absoluta para relativa em dispositivos móveis */
+        top: 0; /* Restaura a posição superior para evitar sobreposição com o cabeçalho */
+    }
 }

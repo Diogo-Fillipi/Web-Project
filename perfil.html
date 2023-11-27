@@ -29,33 +29,55 @@
     <div class="contato">
         <h1>Perfil</h1>
         <div class="formulario">
-            <button id="btnMostrar" onclick="mostrar()">Excluir perfil</button>
+            <button id="btnMostrar" onclick="mostrarExclusao()">Excluir perfil</button>
         </div>
     </div>
 
-
     <div class="contato2" id="exclusao">
-        <div class="formulario" >
+        <div class="formulario">
             <h1>Você tem certeza?</h1>
             <div class="btnForm">
-                <button>Confirmar</button>
-                <button id="btnSumir" onclick="sumir()">Voltar</button>
+                <input type="text" id="usernameInput" placeholder="Username">
+                <button onclick="confirmarExclusao()">Confirmar</button>
+                <button id="btnSumir" onclick="sumirExclusao()">Voltar</button>
             </div>
         </div>
     </div>
 
     <script>
-        var form = document.getElementById("exclusao");
-        form.style.display = "none";
+        var formExclusao = document.getElementById("exclusao");
+        formExclusao.style.display = "none";
 
-        function sumir(){
-            var botaoS = document.getElementById("btnSumir");
-            botaoS.addEventListener("click", form.style.display = "none")
+        function sumirExclusao(){
+            formExclusao.style.display = "none";
         }
 
-        function mostrar(){
-            var botaoM = document.getElementById("btnMostrar");
-            botaoM.addEventListener("click", form.style.display = "block");
+        function mostrarExclusao(){
+            formExclusao.style.display = "block";
+        }
+
+        function confirmarExclusao(){
+            // Get the username from an input field
+            var nomeUsuario = document.getElementById("usernameInput").value;
+
+            const request = new Request(
+                `http://localhost:3000/api/cadastro/` + nomeUsuario,
+                {
+                    method: 'DELETE'
+                }
+            );
+
+            fetch(request)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                })
+                .catch(error => {
+                    console.error('Erro durante a exclusão:', error);
+                });
+
+            // Oculta o formulário de confirmação após a exclusão
+            formExclusao.style.display = "none";
         }
     </script>
 </body>

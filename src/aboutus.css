@@ -1,5 +1,5 @@
-  /* Estilos personalizados para esta landing page */
-  body {
+/* Estilos personalizados para esta landing page */
+body {
     font-family: Arial, sans-serif;
     background-color: #f8f8f8; /* Cor de fundo geral */
     margin: 0;
@@ -45,17 +45,17 @@
     background-image: url('background.jpg');
     background-size: cover;
     text-align: center;
-    padding: 100px 0;
+    padding: 100px 20px; /* Adicione padding lateral para dispositivos móveis */
     color: #fff;
 }
 
 .hero h2 {
-    font-size: 48px;
+    font-size: 36px; /* Reduza o tamanho do título */
     color: #333; /* Cor do título na seção hero */
 }
 
 .hero p {
-    font-size: 24px;
+    font-size: 18px; /* Reduza o tamanho do texto */
     margin-top: 20px;
     color: #555; /* Cor do texto na seção hero */
 }
@@ -64,7 +64,7 @@
     background-color: #A0522D; /* Nova cor para os botões (castanho mais claro) */
     color: #fff;
     padding: 10px 20px;
-    font-size: 20px;
+    font-size: 16px; /* Reduza o tamanho da fonte */
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
@@ -73,8 +73,6 @@
 .btn:hover {
     background-color: #D2691E; /* Nova cor de destaque para os botões (castanho mais escuro) */
 }
-
-
 
 .footer {
     background-color: #333;
@@ -97,7 +95,7 @@
     background-color: rgba(0, 0, 0, 0.8);
     padding: 10px 0;
     width: 100%;
-    position: fixed; /* Posicionamento fixo para a barra de pesquisa */
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
@@ -115,4 +113,45 @@
     display: block;
     background-color: transparent;
     color: #fff;
+}
+
+/* Adicione uma consulta de mídia para estilos específicos para dispositivos móveis */
+@media only screen and (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+
+    .header h1 {
+        font-size: 24px;
+    }
+
+    .header p {
+        font-size: 14px;
+    }
+
+    .nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav a {
+        margin: 10px 0;
+    }
+
+    .hero {
+        padding: 50px 10px;
+    }
+
+    .hero h2 {
+        font-size: 24px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .btn {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
 }

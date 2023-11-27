@@ -12,4 +12,7 @@ connection.connect((error)=>{
     console.log(`Conectado: ${process.env.DB_NAME}`)
 });
 
+
+
+
 module.exports = connection;

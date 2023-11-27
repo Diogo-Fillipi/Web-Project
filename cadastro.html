@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./src/cadastro.css">
+    <script src="./src/server.js"></script>
 
     <title>Sign-up</title>
 </head>
@@ -18,34 +19,31 @@
         </div>
     </div>
 
-x
-    <div class="formulario-signin" id="meuFormulario2">
+    <div class="formulario-signin">
         <h1>Login</h1>
-        <form type="submit">
-            <input type="text" id="email" placeholder="E-mail" autocomplete="off" required>
-            <input type="password" id="senha" placeholder="Senha" required>
+        <form id="meuFormulario2">
+            <input type="text" id="nomew" placeholder="Nome" autocomplete="off" required>
+            <input type="password" id="senhaw" placeholder="Senha" required>
+            <button type="submit" onclick="login()">Sign In</button>
         </form>
-        <button>Sign In</button>
         <button id="btnSumir" onclick="sumir()">Ainda não possui cadastro?</button>
         <button id="btnForget" onclick="forget()">Esqueci a senha</button>
-            
     </div>
 
     <div class="formulario-signin" id="meuFormulario3">
         <h1>Esqueci a senha</h1>
-        <form type="submit">
-            <input type="password" id="senha" placeholder="Digite sua nova senha" required>
+        <form>
+            <input type="text" id="nomel" placeholder="Nome" required>
+            <input type="password" id="senhal" placeholder="Digite sua nova senha" required>
             <input type="password" id="confirmacaoSenha" placeholder="Confirmação de senha" required>
+            <button type="submit" onclick="update()">Atualizar senha</button>
         </form>
-        <button>Atualizar senha</button>
         <button id="btnBack" onclick="voltar()">Voltar</button>
     </div>
 
-
-
     <div class="formulario-signup">
         <h1>Cadastro</h1>
-        <form type="submit" id="meuFormulario">
+        <form method="post" id="meuFormulario">
             <input type="text" id="nome" placeholder="Nome" required>
             <input type="text" id="idade" placeholder="Idade" required>
             <input type="text" id="email" placeholder="E-mail" autocomplete="off" required>
@@ -60,7 +58,7 @@ x
 
             <div class="btnlog">
                 <div>
-                    <button class= "btn1" onclick="pegarInfo()"> Sign Up </button>
+                    <button type="submit" class="btn1" onclick="handleFormSubmit()"> Sign Up </button>
                 </div>
                 <div>
                     <button id="btnMostrar" class="btn2" onclick="mostrar()"> Já possui um cadastro? </button>
@@ -74,63 +72,137 @@ x
     </div>
 
     <script>
-        
-        function redirecionar(){
-            window.location.href = "index.html";
+        document.getElementById('meuFormulario').addEventListener('submit', function handleFormSubmit(event) {
+        event.preventDefault();
 
+        const nome = document.getElementById('nome').value;
+        const email = document.getElementById('email').value;
+        const senha = document.getElementById('senha').value;
+
+        const dadosCadastro = {
+            nome,
+            email,
+            senha,
+        };
+
+        fetch('http://localhost:3000/api/cadastro', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(dadosCadastro),
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.ok) {
+                console.log('Usuário cadastrado com sucesso:', data);
+            } else {
+            }
+        })
+        .catch(error => {
+            console.error('Erro ao fazer a requisição:', error);
+        });
+
+        
+        
+    });
+    
+
+    function update() {
+    const nome = document.getElementById('nomel').value;
+    const senha = document.getElementById('senhal').value;
+
+    const dadosCadastro = {
+        nome,
+        senha,
+    };
+
+    const request = new Request(
+        `http://localhost:3000/api/cadastro/` + nome,
+        {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(dadosCadastro),
+        }
+    );
+
+    fetch(request)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+        })
+        .catch(error => {
+            console.error('Erro durante a atualização:', error);
+        });
+}
+
+
+
+
+function login() {
+    const nome = document.getElementById('nomew').value;
+    const senha = document.getElementById('senhaw').value;
+
+    const dadosCadastro = {
+        nome,
+        senha,
+    };
+
+    const request = new Request(
+        `http://localhost:3000/api/cadastro/` + nome,
+        {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        }
+    );
+
+    fetch(request)
+        .then(response => response.json())
+        .then(data => {
+            if (data.result.senha === senha) {
+                    alert('Login realizado com sucesso!');
+            } else {
+                // User not found
+                alert('Erro no login.');
+            }
+        })
+        .catch(error => {
+            console.error('Erro durante o login:', error);
+        });
+}
+
+
+
+
+        function redirecionar() {
+            window.location.href = "index.html";
         }
 
         var formulario = document.getElementById("meuFormulario2");
         formulario.style.display = "none";
-        
-        
+
         var formulario2 = document.getElementById("meuFormulario3");
         formulario2.style.display = "none";
-        
 
-        function voltar(){
-            var botaoB = document.getElementById("btnBack");
-            botaoB.addEventListener("click", formulario2.style.display = "none");
+        function voltar() {
+            formulario2.style.display = "none";
         }
 
-        function forget(){
-            var botaoF = document.getElementById("btnForget");
-            botaoF.addEventListener("click", formulario2.style.display = "block");
+        function forget() {
+            formulario2.style.display = "block";
         }
 
-        function mostrar(){
-            var botaoM = document.getElementById("btnMostrar");
-            botaoM.addEventListener("click", formulario.style.display = "block");
+        function mostrar() {
+            formulario.style.display = "block";
         }
 
-        function sumir(){
-            var botaoS = document.getElementById("btnSumir");
-            botaoS.addEventListener("click", formulario.style.display = "none")
+        function sumir() {
+            formulario.style.display = "none";
         }
-
-        function pegarInfo() {
-            var nome = document.getElementById("nome").value;
-            var idade = document.getElementById("idade").value;
-            var email = document.getElementById("email").value;
-            var senha = document.getElementById("senha").value;
-            var confirmacaoSenha = document.getElementById("confirmacaoSenha").value;
-
-        if (nome != null){
-        console.log(nome);
-        }
-        if (idade != null){
-            console.log(idade);
-        }
-        if (email != null){
-            console.log(email);
-        }
-        if (senha != null){
-            console.log(senha);
-        }
-        if (confirmacaoSenha != null){
-            console.log(confirmacaoSenha);
-        }
-    }
     </script>
 </body>
 </html>

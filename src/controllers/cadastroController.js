@@ -16,19 +16,34 @@ module.exports = {
     },
 
 
-    buscarUm: async(req, res) => {
-        let json = {error:'', result:{}};
-
-        let nome = req.params.nome;
-        let user = await cadastroService.buscarUm(nome);
-
-        if(user){
-            json.result = user;
+    buscarUm: async (req, res) => {
+        let json = { error: '', result: {} };
+    
+        try {
+            let nome = req.params.nome;
+    
+            // Verificar se o usuário já existe
+            let existingUser = await cadastroService.buscarUm(nome);
+    
+            if(nome) {
+                json.result = {
+                    nome: existingUser.nome,
+                    senha: existingUser.senha
+                };
+            } else {
+                json.error = 'Usuário não encontrado';
+            }
+    
+            res.json(json);
+        } catch (error) {
+            console.error('Erro ao buscar usuário:', error);
+            json.error = 'Erro ao buscar usuário';
+            res.json(json);
         }
-
-        res.json(json);
     },
-
+    
+   
+    
     inserir: async(req, res) => {
         let json = {error:'', result:{}};
 
@@ -37,7 +52,7 @@ module.exports = {
         let senha = req.body.senha;
         
         if(nome && email && senha){
-            let userName = await cadastroService.inserir(nome, email, senha);
+            await cadastroService.inserir(nome, email, senha);
             json.result = {nome,
             email,
             senha};
@@ -48,6 +63,8 @@ module.exports = {
 
         res.json(json);
     },
+
+
 
     alterar: async(req, res) => {
         let json = {error:'', result:{}};
