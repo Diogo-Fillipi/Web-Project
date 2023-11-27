@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/style.css">
+  
+
+
+
+    <title>Landing Page</title>
+</head>
+<body>
+    <header class="header">
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Search...">
+        </div>
+        <h1>How to English</h1>
+        <p>O seu caminho para a fluência</p>
+        <div class="nav">
+            <a href="./index.html">Home</a>
+            <a href="./contact.html">Contact us</a>
+            <a href="./cadastro.html">Sign up</a>
+            <a href="./aboutus.html">About Us</a>
+            <a href="./perfil.html">Profile</a>
+            <a href="./quest.html">Quest</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Welcome to How to English</h2>
+            <p>Desbloqueie um mundo de oportuindades com a fluência no inglês.</p>
+            <a href="#learn-more" class="btn">Ler Mais</a>
+        </div>
+    </section>
+
+    <section class="section" id="learn-more">
+        <div class="container">
+            <h2>Por que aprender inglês?</h2>
+            <p>Descubra os benefícios que aprender inglês irá te proporcionar:</p>
+            <ul>
+                <li>Comunicação global: O inglês é a lingua universal dos negócios.</li>
+                <li>Plano de carreira: Abre portas para oportunidades de trabalhos internacionais.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2>Como aprender inglês?</h2>
+            <p>Comece a sua jornada no inglês come essas dicas:</p>
+            <ul>
+                <li>Entre em contato com o idioma inglês, a imersão é a melhor forma de aprendizado.</li>
+                <li>Pratique com nativos do idioma.</li>
+                <li>Utilize aplicativos e recursos de aprendizagem, como o duolingo.</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 How to English. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Função para atualizar a posição da barra de pesquisa
+        function updateSearchBarPosition() {
+            const searchBar = document.querySelector('.search-bar');
+            const header = document.querySelector('.header');
+
+            if (window.scrollY > header.clientHeight) {
+                searchBar.style.top = '0';
+            } else {
+                searchBar.style.top = header.clientHeight - window.scrollY + 'px';
+            }
+        }
+
+        // Adiciona um ouvinte de evento para atualizar a posição da barra de pesquisa quando a página é rolada
+        window.addEventListener('scroll', updateSearchBarPosition);
+
+        // Chama a função para posicionar inicialmente a barra de pesquisa
+        updateSearchBarPosition();
+    </script>
+</body>
+</html>

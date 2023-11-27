@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/cadastro.css">
+
+    <title>Sign-up</title>
+</head>
+<body>
+    <div class="complemento">
+        <div class="complemento2">
+            <h1>WELCOME</h1>
+            
+            <p>Por que falar inglês é importante? Por que o inglês é importante? 
+                O inglês é uma lígua universal, todos consideram fácil, portanto se torna uma língua popular. Em todos os lugares se fala essa língua se tornou uma regra saber ela para aprender diferentes culturas e novos lugares com uma fronteira única sendo o inglês. O turismo depende do inglês tanto quanto o marketing global, e o inglês sendo uma língua estrangeira de fácil acesso e aprendizado abre as portas deles. Nós consumimos o inglês todos os dias em séries, músicas e filmes existem até palavras sem tradução como por exemplo "bullying" que é uma palavra muito utilizada no dia a dia. O inglês está entre nós e sempre estará e isso é só uma demonstração da importância do inglês.<br></p>
+            <img src="https://t1.uc.ltmcdn.com/pt/posts/3/0/7/como_aprender_ingles_sozinho_30703_orig.jpg" alt="English">
+        </div>
+    </div>
+
+x
+    <div class="formulario-signin" id="meuFormulario2">
+        <h1>Login</h1>
+        <form type="submit">
+            <input type="text" id="email" placeholder="E-mail" autocomplete="off" required>
+            <input type="password" id="senha" placeholder="Senha" required>
+        </form>
+        <button>Sign In</button>
+        <button id="btnSumir" onclick="sumir()">Ainda não possui cadastro?</button>
+        <button id="btnForget" onclick="forget()">Esqueci a senha</button>
+            
+    </div>
+
+    <div class="formulario-signin" id="meuFormulario3">
+        <h1>Esqueci a senha</h1>
+        <form type="submit">
+            <input type="password" id="senha" placeholder="Digite sua nova senha" required>
+            <input type="password" id="confirmacaoSenha" placeholder="Confirmação de senha" required>
+        </form>
+        <button>Atualizar senha</button>
+        <button id="btnBack" onclick="voltar()">Voltar</button>
+    </div>
+
+
+
+    <div class="formulario-signup">
+        <h1>Cadastro</h1>
+        <form type="submit" id="meuFormulario">
+            <input type="text" id="nome" placeholder="Nome" required>
+            <input type="text" id="idade" placeholder="Idade" required>
+            <input type="text" id="email" placeholder="E-mail" autocomplete="off" required>
+            <input type="password" id="senha" placeholder="Senha" required>
+            <input type="password" id="confirmacaoSenha" placeholder="Confirmação de senha" required>
+            <select name="gender" required>
+                <option value="" disabled selected>Selecione seu Gênero</option>
+                <option value="male">Masculino</option>
+                <option value="female">Feminino</option>
+                <option value="other">Outro</option>
+            </select>
+
+            <div class="btnlog">
+                <div>
+                    <button class= "btn1" onclick="pegarInfo()"> Sign Up </button>
+                </div>
+                <div>
+                    <button id="btnMostrar" class="btn2" onclick="mostrar()"> Já possui um cadastro? </button>
+                </div>
+                <div>
+                    <button id="btnRedireciona" class="btn3" onclick="redirecionar()">Pag</button>
+                </div>
+            </div>
+        </form>
+        <div id="mensagemErro"></div>
+    </div>
+
+    <script>
+        
+        function redirecionar(){
+            window.location.href = "index.html";
+
+        }
+
+        var formulario = document.getElementById("meuFormulario2");
+        formulario.style.display = "none";
+        
+        
+        var formulario2 = document.getElementById("meuFormulario3");
+        formulario2.style.display = "none";
+        
+
+        function voltar(){
+            var botaoB = document.getElementById("btnBack");
+            botaoB.addEventListener("click", formulario2.style.display = "none");
+        }
+
+        function forget(){
+            var botaoF = document.getElementById("btnForget");
+            botaoF.addEventListener("click", formulario2.style.display = "block");
+        }
+
+        function mostrar(){
+            var botaoM = document.getElementById("btnMostrar");
+            botaoM.addEventListener("click", formulario.style.display = "block");
+        }
+
+        function sumir(){
+            var botaoS = document.getElementById("btnSumir");
+            botaoS.addEventListener("click", formulario.style.display = "none")
+        }
+
+        function pegarInfo() {
+            var nome = document.getElementById("nome").value;
+            var idade = document.getElementById("idade").value;
+            var email = document.getElementById("email").value;
+            var senha = document.getElementById("senha").value;
+            var confirmacaoSenha = document.getElementById("confirmacaoSenha").value;
+
+        if (nome != null){
+        console.log(nome);
+        }
+        if (idade != null){
+            console.log(idade);
+        }
+        if (email != null){
+            console.log(email);
+        }
+        if (senha != null){
+            console.log(senha);
+        }
+        if (confirmacaoSenha != null){
+            console.log(confirmacaoSenha);
+        }
+    }
+    </script>
+</body>
+</html>

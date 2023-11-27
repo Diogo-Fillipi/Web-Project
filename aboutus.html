@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/aboutus.css">
+    <title>Sobre nós</title>
+</head>
+<body>
+    <header class="header">
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Search...">
+        </div>
+        <h1>How to English</h1>
+        <p>O seu caminho para a fluência</p>
+        <div class="nav">
+            <a href="./index.html">Home</a>
+            <a href="./contact.html">Contact us</a>
+            <a href="./cadastro.html">Sign up</a>
+            <a href="./aboutus.html">About Us</a>
+            <a href="./perfil.html">Profile</a>
+            <a href="./quest.html">Quest</a>
+        </div>
+    </header>
+    <section class="hero">
+        <div class="container">
+            <h2>Quem somos?</h2>
+            <p class="texto">Somos estudantes de T.I, e ao longo do curso foi se tornando notório a necessidade de se ter um bom inglês para se desenvolver na área de tecnologia. Por conta disso, resolvemos criar o "How to english", um site informativo com o intuito de ajudar as pessoas que possuem dificuldade com o idioma inglês, de uma forma simples e fácil.</p>  
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 How to English. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    <script>
+        // Função para atualizar a posição da barra de pesquisa
+        function updateSearchBarPosition() {
+            const searchBar = document.querySelector('.search-bar');
+            const header = document.querySelector('.header');
+
+            if (window.scrollY > header.clientHeight) {
+                searchBar.style.top = '0';
+            } else {
+                searchBar.style.top = header.clientHeight - window.scrollY + 'px';
+            }
+        }
+
+        // Adiciona um ouvinte de evento para atualizar a posição da barra de pesquisa quando a página é rolada
+        window.addEventListener('scroll', updateSearchBarPosition);
+
+        // Chama a função para posicionar inicialmente a barra de pesquisa
+        updateSearchBarPosition();
+    </script>
+    
+</body>
+</html>

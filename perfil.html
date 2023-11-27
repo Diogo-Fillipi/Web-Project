@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/perfil.css">
+    <title>Document</title>
+</head>
+<body>
+    <header class="header">
+        <h1>How to English</h1>
+        <p>O seu caminho para a fluência</p>
+        <div class="nav">
+            <a href="./index.html">Home</a>
+            <a href="./contact.html">Contact us</a>
+            <a href="./cadastro.html">Sign up</a>
+            <a href="./aboutus.html">About Us</a>
+            <a href="./perfil.html">Profile</a>
+            <a href="./quest.html">Quest</a>
+        </div>
+    </header>
+
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+
+    <div class="contato">
+        <h1>Perfil</h1>
+        <div class="formulario">
+            <button id="btnMostrar" onclick="mostrar()">Excluir perfil</button>
+        </div>
+    </div>
+
+
+    <div class="contato2" id="exclusao">
+        <div class="formulario" >
+            <h1>Você tem certeza?</h1>
+            <div class="btnForm">
+                <button>Confirmar</button>
+                <button id="btnSumir" onclick="sumir()">Voltar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var form = document.getElementById("exclusao");
+        form.style.display = "none";
+
+        function sumir(){
+            var botaoS = document.getElementById("btnSumir");
+            botaoS.addEventListener("click", form.style.display = "none")
+        }
+
+        function mostrar(){
+            var botaoM = document.getElementById("btnMostrar");
+            botaoM.addEventListener("click", form.style.display = "block");
+        }
+    </script>
+</body>
+</html>

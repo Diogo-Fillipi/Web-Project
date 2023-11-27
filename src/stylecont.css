@@ -1,0 +1,130 @@
+/* Estilos gerais para o corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    
+}
+
+/* Estilos para o cabeçalho da página de contato */
+.header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.header h1 {
+    font-size: 36px;
+}
+
+.header p {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #fff;
+    margin: 0 20px;
+    font-size: 18px;
+}
+
+/* Estilos para os botões com classe .btn */
+.btn {
+    display: inline-block;
+    background-color: #d9d9d9; /* Cor de fundo semelhante à .log */
+    border: none;
+    color: white; /* Cor do texto nos botões */
+    padding: 10px 20px; /* Espaçamento interno dos botões */
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 75px; /* Mesma borda arredondada da .log */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Adiciona uma transição suave na mudança de cor de fundo */
+}
+
+/* Estilos para o texto dentro dos botões */
+.btn p {
+    margin: 0; /* Remova as margens padrão do texto */
+}
+
+/* Efeito de transição quando o cursor estiver sobre os botões */
+.btn:hover {
+    background-color: #ae751f; /* Cor de fundo ao passar o cursor por cima */
+}
+
+
+
+
+/* Estilos adicionais para a página de contato com os desenvolvedores */
+.contato {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #333;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px #00000040;
+    margin-top: 20px;
+}
+
+/* Estilos para o título da seção de contato */
+.contato h1 {
+    font-size: 28px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+/* Estilos para o formulário de contato */
+.formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    width: 100%;
+}
+
+/* Estilos para os campos do formulário */
+.formulario input[type="text"],
+.formulario input[type="email"],
+.formulario textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Estilos para o botão de envio do formulário */
+.formulario button {
+    background-color: #ae751f;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Estilo para o campo de textarea */
+.formulario textarea {
+    resize: none; /* Impede o redimensionamento pelo usuário */
+}
+
+
+/* Efeito de transição quando o cursor estiver sobre o botão de envio */
+.formulario button:hover {
+    background-color: #6b4242;
+}

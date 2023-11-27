@@ -1,0 +1,150 @@
+/* Estilos personalizados para esta landing page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    margin: 0 auto;
+}
+
+.header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.header h1 {
+    font-size: 36px;
+}
+
+.btn {
+    background-color: #A0522D;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    
+}
+
+.btn:hover {
+    background-color: #D2691E;
+}
+
+.section {
+    background-color: #fff;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.section h2 {
+    font-size: 36px;
+    color: #333;
+}
+
+.section p {
+    font-size: 18px;
+    margin-top: 20px;
+    color: #555;
+}
+
+.question-container {
+    margin-top: 20px;
+    padding-left: 20px;
+}
+
+.question {
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-align: left; /* Alinhamento à esquerda para as perguntas */
+}
+
+.options {
+    text-align: left; /* Alinhamento à esquerda para as opções */
+    margin-top: 10px;
+}
+
+.option-container {
+    display: flex; /* Coloca a label ao lado da alternativa */
+    align-items: center; /* Centraliza verticalmente */
+    margin-bottom: 10px; /* Espaço entre as opções */
+}
+
+.option-container label {
+    margin-left: 10px; /* Espaço entre a alternativa e a label */
+}
+
+.options label {
+    display: inline-block; /* Mostrar labels como blocos em linha */
+    margin-right: 10px;
+    padding: 5px; /* Espaçamento interno para as opções */
+    border: 1px solid #ccc; /* Borda para as opções */
+    border-radius: 5px; /* Cantos arredondados para as opções */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Estilo para realçar as opções selecionadas */
+.options label:hover {
+    background-color: #A0522D; /* Cor de destaque ao passar o mouse sobre as opções */
+    color: #fff; /* Cor do texto das opções selecionadas */
+}
+
+.options input:checked + label {
+    background-color: #D2691E; /* Cor de destaque para opção selecionada */
+    color: #fff; /* Cor do texto das opções selecionadas */
+}
+
+.result{
+    margin-left: 10px;
+    padding: 20px;
+}
+
+/* Estilos generales para dispositivos de pantalla pequeña (móviles) */
+@media screen and (max-width: 600px) {
+    .container {
+        padding: 10px; /* Reducir el relleno en dispositivos más pequeños */
+    }
+
+    .header h1 {
+        font-size: 24px; /* Reducir el tamaño de fuente del título en dispositivos móviles */
+    }
+
+    .btn {
+        font-size: 16px; /* Reducir el tamaño de fuente de los botones en dispositivos móviles */
+    }
+
+    .section h2 {
+        font-size: 24px; /* Reducir el tamaño de fuente de los títulos de sección en dispositivos móviles */
+    }
+
+    .section p {
+        font-size: 16px; /* Reducir el tamaño de fuente de los párrafos en dispositivos móviles */
+    }
+
+    .question-container {
+        margin-top: 10px; /* Reducir el margen superior en dispositivos más pequeños */
+    }
+
+    .question {
+        font-size: 16px; /* Reducir el tamaño de fuente de las preguntas en dispositivos móviles */
+    }
+
+    .options {
+        margin-top: 5px; /* Reducir el margen superior entre las opciones en dispositivos más pequeños */
+    }
+
+    .options label {
+        font-size: 14px; /* Reducir el tamaño de fuente de las etiquetas de opciones en dispositivos móviles */
+    }
+
+    .result {
+        margin-left: 5px; /* Reducir el margen izquierdo en dispositivos más pequeños */
+    }
+}
