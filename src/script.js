@@ -2,17 +2,14 @@ function verificarEmail() {
     const emailInput = document.getElementById("email");
     const mensagemErro = document.getElementById("mensagemErro");
 
-    // Verifique se o campo de email foi preenchido
     if (emailInput.value.trim() === "") {
         mensagemErro.textContent = "Por favor, insira um email válido.";
     } else {
-        // Realize uma verificação de formato de email usando uma expressão regular
         const emailFormatoValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value);
 
         if (!emailFormatoValido) {
             mensagemErro.textContent = "Por favor, insira um email válido.";
         } else {
-            mensagemErro.textContent = ""; // Limpe a mensagem de erro se o formato for válido
         }
     }
 };
