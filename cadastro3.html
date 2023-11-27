@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./src/cadastro.css">
+    <link rel="stylesheet" href="./src/cadastro3.css">
     <script src="./src/server.js"></script>
 
     <title>Sign-up</title>
@@ -19,36 +19,16 @@
         </div>
     </div>
 
-    
 
-    <div class="formulario-signup">
-        <h1>Cadastro</h1>
-        <form method="post" id="meuFormulario">
-            <input type="text" id="nome" placeholder="Nome" required>
-            <input type="text" id="idade" placeholder="Idade" required>
-            <input type="text" id="email" placeholder="E-mail" autocomplete="off" required>
-            <input type="password" id="senha" placeholder="Senha" required>
+    <div class="formulario-signin" id="meuFormulario3">
+        <h1>Esqueci a senha</h1>
+        <form>
+            <input type="text" id="nomel" placeholder="Nome" required>
+            <input type="password" id="senhal" placeholder="Digite sua nova senha" required>
             <input type="password" id="confirmacaoSenha" placeholder="Confirmação de senha" required>
-            <select name="gender" required>
-                <option value="" disabled selected>Selecione seu Gênero</option>
-                <option value="male">Masculino</option>
-                <option value="female">Feminino</option>
-                <option value="other">Outro</option>
-            </select>
-
-            <div class="btnlog">
-                <div>
-                    <button type="submit" class="btn1" onclick="handleFormSubmit()"> Sign Up </button>
-                </div>
-                <div>
-                    <button id="btnMostrar" class="btn2" onclick="redirecionar2()"> Já possui um cadastro? </button>
-                </div>
-                <div>
-                    <button id="btnRedireciona" class="btn3" onclick="redirecionar()">Pag</button>
-                </div>
-            </div>
+            <button type="submit" onclick="update()">Atualizar senha</button>
         </form>
-        <div id="mensagemErro"></div>
+        <button id="btnBack" onclick="redirecionar2()">Voltar</button>
     </div>
 
     <script>
@@ -155,15 +135,12 @@ function login() {
         });
 }
 
-
-
-
-        function redirecionar() {
-            window.location.href = "index.html";
+        function redirecionar2(){
+            window.location.href = "cadastro2.html";
         }
 
-        function redirecionar2() {
-            window.location.href = "cadastro2.html";
+        function redirecionar() {
+            window.location.href = "cadastro.html";
         }
 
         var formulario = document.getElementById("meuFormulario2");
