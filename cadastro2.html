@@ -21,7 +21,8 @@
 
     <div class="formulario-signin" id="meuFormulario2">
         <h1>Login</h1>
-        <form>
+        <form method="GET" id="meuFormulario2">
+
             <input type="text" id="nomew" placeholder="Nome" autocomplete="off" required>
             <input type="password" id="senhaw" placeholder="Senha" required>
             <button type="submit" onclick="login()">Sign In</button>
@@ -48,9 +49,7 @@
 
         fetch('http://localhost:3000/api/cadastro', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
+          
             body: JSON.stringify(dadosCadastro),
         })
         .then(response => response.json())
@@ -109,15 +108,14 @@ function login() {
     const dadosCadastro = {
         nome,
         senha,
+        
     };
 
     const request = new Request(
         `http://localhost:3000/api/cadastro/` + nome,
         {
             method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-            },
+          
         }
     );
 
@@ -125,11 +123,12 @@ function login() {
         .then(response => response.json())
         .then(data => {
             if (data.result.senha === senha) {
-                    alert('Login realizado com sucesso!');
+                    result = alert('Login realizado com sucesso!');
             } else {
-                // User not found
-                alert('Erro no login.');
+                
+                result = alert('Erro no login.');
             }
+            
         })
         .catch(error => {
             console.error('Erro durante o login:', error);
