@@ -21,7 +21,8 @@ module.exports = {
     
         try {
             let nome = req.params.nome;
-
+    
+            // Verificar se o usuário já existe
             let existingUser = await cadastroService.buscarUm(nome);
     
             if(nome) {
